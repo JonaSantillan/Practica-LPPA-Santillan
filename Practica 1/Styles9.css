@@ -1,0 +1,278 @@
+body{
+    background: #002fff;
+
+}
+
+#titulo{
+    width: 1200px;
+    height: 60px;
+    padding: 10px;
+    background-color: #aaaaaa;
+    margin: 20px;
+    margin-top: 2px;
+    margin-left: 50px;
+    margin-right: 50px;
+    position: relative;
+}
+
+#rojo{
+    width: 1050px;
+    height: 40px;
+    padding: 10px;
+    background-color: #F00;
+    margin: 20px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 50px;
+    position: absolute
+
+}
+#negro{
+    width: 100px;
+    height: 40px;
+    padding: 10px;
+    background-color: #000000;
+    margin: auto;
+    margin-top: 0px;
+    margin-left: 1080px;
+    margin-right: 50px;
+    position: absolute;
+}
+/*primera parte*/
+
+#rojo-gral{
+    width: 1200px;
+    height: 450px;
+    padding: 10px;
+    background-color: #ff0000;
+    margin: 20px;
+    margin-top: 2px;
+    margin-left: 50px;
+    margin-right: 50px;
+    position: relative;
+}
+
+#nav{
+    width: 200px;
+    height: 440px;
+    padding: 0px;
+    background-color: #33ff00;
+    margin: auto;
+    margin-top: 5px;
+    margin-left: 5px;
+    position: absolute;
+}
+
+#nav1{
+    width: 100px;
+    height: 30px;
+    padding: 0px;
+    background-color: #0400ff;
+    margin: auto;
+    margin-top: 20px;
+    margin-left: 50px;
+    position: absolute;
+}
+#nav2{
+    width: 100px;
+    height: 30px;
+    padding: 0px;
+    background-color: #0400ff;
+    margin: auto;
+    margin-top: 70px;
+    margin-left: 50px;
+    position: absolute;
+}
+#nav3{
+    width: 100px;
+    height: 30px;
+    padding: 0px;
+    background-color: #0400ff;
+    margin: auto;
+    margin-top: 120px;
+    margin-left: 50px;
+    position: absolute;
+}
+#nav4{
+    width: 100px;
+    height: 30px;
+    padding: 0px;
+    background-color: #0400ff;
+    margin: auto;
+    margin-top: 170px;
+    margin-left: 50px;
+    position: absolute;
+}
+#nav5{
+    width: 100px;
+    height: 30px;
+    padding: 0px;
+    background-color: #0400ff;
+    margin: auto;
+    margin-top: 220px;
+    margin-left: 50px;
+    position: absolute;
+}
+
+/*Segunda Parte NAV*/
+
+#vista{
+    width: 970px;
+    height: 440px;
+    padding: 0px;
+    background-color: #ffffff;
+    margin: auto;
+    margin-top: 5px;
+    margin-left: 220px;
+    position: absolute;
+}
+
+#vis1{
+    width: 120px;
+    height: 120px;
+    padding: 0px;
+    background-color: #000000;
+    margin: auto;
+    margin-top: 20px;
+    margin-left: 100px;
+    position: absolute;
+}
+#vis2{
+    width: 120px;
+    height: 120px;
+    padding: 0px;
+    background-color: #000000;
+    margin: auto;
+    margin-top: 20px;
+    margin-left: 340px;
+    position: absolute;
+}
+#vis3{
+    width: 120px;
+    height: 120px;
+    padding: 0px;
+    background-color: #000000;
+    margin: auto;
+    margin-top: 20px;
+    margin-left: 560px;
+    position: absolute;
+}
+#vis4{
+    width: 120px;
+    height: 120px;
+    padding: 0px;
+    background-color: #000000;
+    margin: auto;
+    margin-top: 20px;
+    margin-left: 780px;
+    position: absolute;
+}
+#vis5{
+    width: 120px;
+    height: 120px;
+    padding: 0px;
+    background-color: #000000;
+    margin: auto;
+    margin-top: 160px;
+    margin-left: 100px;
+    position: absolute;
+}
+#vis6{
+    width: 120px;
+    height: 120px;
+    padding: 0px;
+    background-color: #000000;
+    margin: auto;
+    margin-top: 160px;
+    margin-left: 340px;
+    position: absolute;
+}
+#vis7{
+    width: 120px;
+    height: 120px;
+    padding: 0px;
+    background-color: #000000;
+    margin: auto;
+    margin-top: 160px;
+    margin-left: 560px;
+    position: absolute;
+}
+#vis8{
+    width: 120px;
+    height: 120px;
+    padding: 0px;
+    background-color: #000000;
+    margin: auto;
+    margin-top: 160px;
+    margin-left: 780px;
+    position: absolute;
+}
+#vis9{
+    width: 120px;
+    height: 120px;
+    padding: 0px;
+    background-color: #000000;
+    margin: auto;
+    margin-top: 300px;
+    margin-left: 100px;
+    position: absolute;
+}
+#vis10{
+    width: 120px;
+    height: 120px;
+    padding: 0px;
+    background-color: #000000;
+    margin: auto;
+    margin-top: 300px;
+    margin-left: 340px;
+    position: absolute;
+}
+#vis11{
+    width: 120px;
+    height: 120px;
+    padding: 0px;
+    background-color: #000000;
+    margin: auto;
+    margin-top: 300px;
+    margin-left: 560px;
+    position: absolute;
+}
+#vis12{
+    width: 120px;
+    height: 120px;
+    padding: 0px;
+    background-color: #000000;
+    margin: auto;
+    margin-top: 300px;
+    margin-left: 780px;
+    position: absolute;
+}
+
+
+
+/*tercera parte Vista*/
+
+#final{
+    width: 1200px;
+    height: 60px;
+    padding: 10px;
+    background-color: #aaaaaa;
+    margin: 20px;
+    margin-top: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+    position: relative;
+}
+
+#verde{
+    width: 950px;
+    height: 10px;
+    padding: 10px;
+    background-color: #1eff00;
+    margin: 20px;
+    margin-top: 15px;
+    margin-left: 150px;
+    margin-right: 50px;
+    position: absolute
+}
+

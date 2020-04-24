@@ -1,0 +1,15 @@
+body{
+    background: gray;
+}
+
+#verde{
+    width: 280px;
+    padding: 280px;
+    background-color: rgb(59, 250, 59);
+    margin: auto;
+    margin-top: 50px;
+    margin-left: 180px;
+    border-color: black;
+    border-width: 5px;
+    border-style: solid;
+}

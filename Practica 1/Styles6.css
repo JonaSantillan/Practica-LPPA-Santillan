@@ -1,0 +1,39 @@
+body{
+    background: #c0c0c0;
+
+}
+
+#rojo{
+    width: 950px;
+    height: 500px;
+    padding: 10px;
+    background-color: #F00;
+    margin: 20px;
+    margin-top: 50px;
+    margin-left: 180px;
+    margin-right: 50px;
+    position: relative;
+}
+
+#azul{
+    width: 400px;
+    height: 350px;
+    padding: 0px;
+    background-color: #0400ff;
+    margin: auto;
+    margin-top: 60px;
+    margin-left: 50px;
+    position: absolute;
+
+}
+#verde{
+    width: 400px;
+    height: 350px;
+    padding: 0px;
+    background-color: #00ff00;
+    margin: auto;
+    margin-top: 60px;
+    margin-left: 500px;
+    margin-right: 50px;
+    position: absolute;
+}
