@@ -1,107 +1,212 @@
-var canvas = null,
-    ctx = null,
-    x = 50,
-    y = 50,
-    lastPress = null,
-    KEY_ENTER = 13,
-    KEY_LEFT = 37,
-    KEY_UP = 38,
-    KEY_RIGHT = 39,
-    KEY_DOWN = 40,
-    dir = 0,
-    pause = true;
+(function (window, undefined) {
+'use strict';
+var 
+KEY_ENTER = 13,
+KEY_LEFT = 37,
+KEY_UP = 38,
+KEY_RIGHT = 39,
+KEY_DOWN = 40,
+canvas = null,
+ctx = null,
+lastPress = null,
+pause = true,
+gameover = true,
+dir = 0,
+score = 0,
+body = [],
+food = null,
+iBody = new Image(),
+iFood = new Image(),
+aEat = new Audio(),
+aDie = new Audio();
 
-document.addEventListener('keydown', function (evt) {
-    lastPress = evt.which;
-}, false);
+window.requestAnimationFrame = (function () {
+    return window.requestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    function (callback) {
+    window.setTimeout(callback, 17);
+    };
+}());
 
+    document.addEventListener('keydown', function (evt) {
+        lastPress = evt.which;
+        }, false);
+            function Rectangle(x, y, width, height) {
+            this.x = (x === undefined) ? 0 : x;
+            this.y = (y === undefined) ? 0 : y;
+            this.width = (width === undefined) ? 0 : width;
+            this.height = (height === undefined) ? this.width : height;
+        }
+        Rectangle.prototype = {
+        constructor: Rectangle,
+        intersects: function (rect) {
+        if (rect === undefined) {
+            window.console.warn('Missing parameters on function intersects');
+        } else {
+            return (this.x < rect.x + rect.width &&
+            this.x + this.width > rect.x &&
+            this.y < rect.y + rect.height &&
+            this.y + this.height > rect.y);
+        }
+    },
+
+        fill: function (ctx) {
+            if (ctx === undefined) {
+                window.console.warn('Missing parameters on function fill');
+            } else {
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+            }
+        },
+
+        drawImage: function (ctx, img) {
+            if (img === undefined) {
+                window.console.warn('Missing parameters on function drawImage');
+            } else {
+            if (img.width) {
+                ctx.drawImage(img, this.x, this.y);
+            } else {
+                ctx.strokeRect(this.x, this.y, this.width, this.height);
+            }
+        }
+    }
+};
+
+function random(max) {
+    return ~~(Math.random() * max);
+    }
+function canPlayOgg() {
+    var aud = new Audio();
+    if (aud.canPlayType('audio/ogg').replace(/no/, '')) {
+        return true;
+    } else {
+        return false;
+    }
+}
+function reset() {
+    score = 0;
+    dir = 1;
+    body.length = 0;
+    body.push(new Rectangle(40, 40, 10, 10));
+    body.push(new Rectangle(0, 0, 10, 10));
+    body.push(new Rectangle(0, 0, 10, 10));
+    food.x = random(canvas.width / 10 - 1) * 10;
+    food.y = random(canvas.height / 10 - 1) * 10;
+    gameover = false;
+}
 function paint(ctx) {
-    ctx.fillStyle = '#0f0';
-    ctx.fillRect(50, 50, 100, 60);
+    var i = 0,
+    l = 0;
     ctx.fillStyle = '#000';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = '#0f0';
-    ctx.fillRect(x, y, 10, 10);
+    ctx.strokeStyle = '#0f0';
+    for (i = 0, l = body.length; i < l; i += 1) {
+        body[i].drawImage(ctx, iBody);
+    }
+    ctx.strokeStyle = '#f00';
+    food.drawImage(ctx, iFood);
     ctx.fillStyle = '#fff';
-    //ctx.fillText('Last Press: ' + lastPress, 0, 20);
-
-    if(pause){
+    ctx.fillText('Score: ' + score, 0, 10);
+    if (pause) {
         ctx.textAlign = 'center';
+    if (gameover) {
+        ctx.fillText('GAME OVER', 150, 75);
+    } else {
         ctx.fillText('PAUSE', 150, 75);
-        ctx.textAlign = 'left';
+    }
+    ctx.textAlign = 'left';
     }
 }
-
-function repaint() {
-    window.requestAnimationFrame(repaint);
-    paint(ctx);
-}
-
-function init() {
-    canvas = document.getElementById('canvas');
-    ctx = canvas.getContext('2d');
-    run ();
-    repaint();
-}
-
-function run() {
-    window.requestAnimationFrame(run);
-    paint(ctx);
-    setTimeout(run, 50);
-    act();
-}
-
-function act(){
-    x += 2;
-    if(!pause){
-        if (x > canvas.width) {
-            x = 0;
-        }
-        if(lastPress == KEY_UP) {
-            dir = 0;
-        }
-        if (lastPress == KEY_RIGHT) {
-            dir = 1;
-        }
-        if (lastPress == KEY_DOWN) {
-            dir = 2;
-        }
-        if (lastPress == KEY_LEFT){
-            dir = 3;
-        }
-
-        if(dir == 0){
-            y -=10;
-        }
-        if(dir == 1){
-            x +=10;
-        }
-        if(dir == 2){
-            y +=10;
-        }
-        if(dir == 3){
-            x -=10;
-        }
-
-        if(x > canvas.width){
-            x = 0;
-        }
-        if(y > canvas.height){
-            y = 0;
-        }
-        if(x < 0){
-            x = canvas.width;
-        }
-        if(y < 0){
-            y = canvas.height;
+function act() {
+    var i = 0,
+    l = 0;
+    if (!pause) {
+    if (gameover) {
+        reset();
+    }
+    for (i = body.length - 1; i > 0; i -= 1) {
+        body[i].x = body[i - 1].x;
+        body[i].y = body[i - 1].y;
+    }
+    if (lastPress === KEY_UP && dir !== 2) {
+        dir = 0;
+    }
+    if (lastPress === KEY_RIGHT && dir !== 3) {
+        dir = 1;
+    }
+    if (lastPress === KEY_DOWN && dir !== 0) {
+        dir = 2;
+    }
+    if (lastPress === KEY_LEFT && dir !== 1) {
+        dir = 3;
+    }
+    if (dir === 0) {
+        body[0].y -= 10;
+    }
+    if (dir === 1) {
+        body[0].x += 10;
+    }
+    if (dir === 2) {
+        body[0].y += 10;
+    }
+    if (dir === 3) {
+        body[0].x -= 10;
+    }
+    if (body[0].x > canvas.width - body[0].width) {
+        body[0].x = 0;
+    }
+    if (body[0].y > canvas.height - body[0].height) {
+        body[0].y = 0;
+    }
+    if (body[0].x < 0) {
+        body[0].x = canvas.width - body[0].width;
+    }
+    if (body[0].y < 0) {
+        body[0].y = canvas.height - body[0].height;
+    }
+    for (i = 2, l = body.length; i < l; i += 1) {
+        if (body[0].intersects(body[i])) {
+            gameover = true;
+            pause = true;
+            aDie.play();
         }
     }
-
-    if(lastPress == KEY_ENTER){
+    if (body[0].intersects(food)) {
+        body.push(new Rectangle(food.x, food.y, 10, 10));
+        score += 1;
+        food.x = random(canvas.width / 10 - 1) * 10;
+        food.y = random(canvas.height / 10 - 1) * 10;
+        aEat.play();
+        }
+    }
+    if (lastPress === KEY_ENTER) {
         pause = !pause;
         lastPress = null;
     }
 }
-
+function repaint() {
+    window.requestAnimationFrame(repaint);
+    paint(ctx);
+}
+function run() {
+    setTimeout(run, 50);
+    act();
+}
+function init() {
+    canvas = document.getElementById('canvas');
+    ctx = canvas.getContext('2d');
+    iBody.src = 'assets/body.png';
+    iFood.src = 'assets/fruit.png';
+    if (canPlayOgg()) {
+        aEat.src = 'assets/chomp.oga';
+        aDie.src = 'assets/dies.oga';
+    } else {
+        aEat.src = 'assets/chomp.m4a';
+        aDie.src = 'assets/dies.m4a';
+    }
+    food = new Rectangle(80, 80, 10, 10);
+    run();
+    repaint();
+}
 window.addEventListener('load', init, false);
-
+}(window));
