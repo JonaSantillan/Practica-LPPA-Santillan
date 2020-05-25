@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registro Usuario</title>
+        <link type="text/css" href="Styles.css" rel="stylesheet">
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <center><h1 id="Titulo">Registro de Usuario</h1></center>
+    </body>
+    <center><form action="#" id="Formulario">
+        <p id="contenido">
+            <label for="nombre">Nombre:</label><br>
+                <input type="text" id="id-nombre" name="nombre" minlength="3" required placeholder="Ej.Juan Pablo"><br><br>
+            <label for="apellido">Apellido:</label><br>
+                <input type="text" id="id-apellido" name="apellido" minlength="3" required placeholder="Ej. Díaz Fernandez"><br><br>
+            <label for="mail">E-mail:</label><br>
+                <input type="email" id="id-mail" name="mail" required placeholder="Ej. usuario@ejemplo.com.ar"><br><br>
+            <label for="edad">Edad:</label><br>
+                <input type="number" id="id-edad" name="edad" min="0" max="100" required placeholder="Ej. 32"><br><br>
+            <label for="sexo">Sexo:</label><br>
+                <input type="radio" id="hombre" name="genero" value="Hombre"required>
+                <label for="Hombre">Hombre</label><br>
+                <input type="radio" id="mujer" name="genero" value="mujer">
+                <label for="Mujer">Mujer</label><br>
+                <input type="radio" id="otro" name="genero" value="otro">
+                <label for="Otro">Otro</label><br><br>
+            <label for="t-interes">Temas de interés:</label><br>
+                <input type="checkbox" id="musica" name="interes" value="Musica">
+                <label for="musica"> Música</label><br>
+                <input type="checkbox" id="deporte" name="interes" value="Deporte">
+                <label for="deporte"> Deporte</label><br>
+                <input type="checkbox" id="juego" name="interes" value="Juego">
+                <label for="juego"> Juego</label><br>
+                <input type="checkbox" id="tecnologia" name="interes" value="Tegnologia">
+                <label for="tecnologia"> Tecnología</label><br>
+                <input type="checkbox" id="otros" name="interes" value="Otros">
+                <label for="otros"> Otros</label><br><br>
+            <label for="pais">País:</label><br>
+                <input list="browsers" name="browsers" required placeholder="Seleccione su País"><datalist id="browsers">
+                    <option value="Argentina">
+                    <option value="Brasil">
+                    <option value="Uruguay">
+                    <option value="Chile">
+                    <option value="Paraguay">
+                </datalist><br><br>
+            <label for="comentario">Comentario:</label><br>
+                <textarea name="mensaje" id="id-comentario" rows="10" cols="60" required placeholder="Escriba aquí su comentario" required title="Si no quiere comentar: Coloque un 'X'." ></textarea>
+            <br><br>
+            <input type="submit" id="enviar" value="Enviar Formulario">
+    </form></center>
+</html>

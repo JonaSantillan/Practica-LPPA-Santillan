@@ -1,0 +1,45 @@
+body{
+    background: linear-gradient(70deg, rgb(255, 255, 255), rgb(241, 238, 202),  rgb(255, 255, 255),  rgb(241, 238, 202));
+}
+
+#Titulo{
+    text-align: center;
+    font-size: 40px;
+    color: rgb(0, 0, 0);
+    width: 500px;
+}
+
+#Formulario{
+    text-align: left;
+    font-size: 20px;
+    width:500px;
+    height: 900px;
+    border-radius: 25px;
+    background: linear-gradient(30deg, rgb(255, 255, 255), rgb(151, 211, 252), rgb(255, 255, 255));
+}
+
+#contenido{
+    margin-left: 30px;
+    padding-top: 10px;
+
+}
+
+#id-nombre{
+    width: 250px;
+}
+
+#id-apellido{
+    width: 250px;
+}
+
+#id-mail{
+    width: 400px;
+}
+
+#id-edad{
+    width: 50px;
+}
+
+#id-comentario{
+    resize: none;
+}
