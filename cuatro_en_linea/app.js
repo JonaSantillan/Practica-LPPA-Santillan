@@ -6,7 +6,7 @@ var estado_tablero = [
     [0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0],
   ]
-  
+
   var turno = 1
   
   window.onload = function() {
