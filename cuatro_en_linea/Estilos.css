@@ -6,7 +6,7 @@ body{
     margin-top: 0px;
     height: 25px;
     text-align: center;
-    font-size: 40px;
+    font-size: 50px;
     color: rgb(0, 0, 0);
 }
 
@@ -51,8 +51,27 @@ body{
     cursor: crosshair; 
   }
 
-  .fila {
-    display: flex;
-    justify-content: space-around;
-  }
+.fila {
+   display: flex;
+   justify-content: space-around;
+ }
 
+.activo1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 30px;
+    margin: 10px;
+    background-color: rgb(255, 0, 0);
+}
+
+.activo2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 30px;
+    margin: 10px;
+    background-color:  #2bff00;
+}
