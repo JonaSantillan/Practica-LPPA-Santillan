@@ -7,7 +7,23 @@ body{
     height: 25px;
     text-align: center;
     font-size: 50px;
-    color: rgb(0, 0, 0);
+    color: #000000;
+}
+
+.triangulos {
+  display: flex;
+  justify-content: space-around;
+  width: 780px;
+  margin-top: 15px;
+}
+
+.triangulo {
+  width: 0; 
+  height: 0; 
+  border-top: 30px solid transparent;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 5px solid transparent;
 }
 
 #Tablero{
