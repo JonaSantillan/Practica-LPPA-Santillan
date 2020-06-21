@@ -39,7 +39,6 @@ window.onload = function() {
           }
 
         })
-
         celda.onmouseover = mousearriba(x)
         celda.onmouseout = mousenoarriba(x)
 
@@ -48,10 +47,15 @@ window.onload = function() {
 }
 
 var reset = function(){
-  var ptoj1 = 1
-  var ptoj2 = 1
-  document.getElementById("ptojg1").innerHTML= "Jugador 1: " + ptoj1 + " Puntos";
-  document.getElementById("ptojg2").innerHTML= "Jugador 2: " + ptoj2 + " Puntos";
+  var mensaje = confirm("¿Jugamos otra partida?")
+  if(mensaje){
+    alert("Juguemos otra vez!")
+    location.reload()
+  }else{
+    alert("Nos vemos otro día!")
+    window.close()
+  }
+
 
 
 }
@@ -79,9 +83,11 @@ var chequearGanador = function(){
           var jugadorrojo = 1
           if(turno === 1){
             alert("Ganador: Jugador  " + jugadorverde)
+            reset()
           }
           if(turno === -1){
             alert("Ganador: Jugador  " + jugadorrojo)
+            reset()
           }
         }
       }
