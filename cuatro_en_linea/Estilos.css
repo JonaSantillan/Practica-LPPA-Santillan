@@ -43,7 +43,7 @@ body{
     border-radius: 50%;
     margin: 10px;
     box-shadow: inset 10px 10px 5px -5px rgb(255, 200, 200);
-    background-color: rgb(255, 0, 0);
+    background-color: rgb(247, 81, 81);
 }
 
 .celdaJ2{
@@ -55,7 +55,7 @@ body{
     border-radius: 50%;
     margin: 10px;
     box-shadow: inset 10px 10px 5px -5px #d2ffc9;
-    background-color: #2bff00;
+    background-color: #79f560;
 }
 
 .celda {
@@ -83,7 +83,7 @@ body{
     width: 120px;
     height: 30px;
     margin: 10px;
-    background-color: rgb(255, 0, 0);
+    background-color: rgb(247, 86, 86);
 }
 
 .activo2{
@@ -93,7 +93,7 @@ body{
     width: 120px;
     height: 30px;
     margin: 10px;
-    background-color:  #2bff00;
+    background-color:  #a0fd8e;
 }
 
 .activo{
@@ -104,4 +104,13 @@ body{
     height: 30px;
     margin: 10px;
     background-color: rgb(255, 255, 255);
+}
+
+.boton{
+    display: flex;
+    font-size: 18px;
+    width: 180px;
+    height: 30px;
+    justify-content: center;
+    box-shadow: 10px 10px 5px -5px rgba(134, 184, 128, 0.726);
 }

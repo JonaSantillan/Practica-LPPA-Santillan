@@ -1,3 +1,4 @@
+
 var estado_tablero = [
     [0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0],
@@ -9,42 +10,47 @@ var estado_tablero = [
 
 
 var turno = 1
-  
-window.onload = function() {
-   estado_tablero.forEach(function(fila, y) {
-     fila.forEach(function(valor, x) {
-       var celda = document.getElementById(x + '-' + y)
-       var cambio1 = document.getElementById("Jugador")
-       celda.onclick = (function(){
-           for (let y = 0; y < 6; y++) {
-             const valor = estado_tablero[y][x];
-             if(valor !== 0){
-               estado_tablero[y - 1][x] = turno
-               turno = turno === 1 ? -1 : 1
-               break
-             }else if (y === 5){
-              estado_tablero[y][x] = turno
-              turno = turno === 1 ? -1 : 1
-             }
-           }
-          pintar()
-          chequearGanador()
-          if(turno === 1){
-              cambiar()
-              cambio1.className = "activo1"
-          }
-          if(turno === -1){
-              cambiar()
-              cambio1.className = "activo2"
-          }
 
-        })
-        celda.onmouseover = mousearriba(x)
-        celda.onmouseout = mousenoarriba(x)
 
-     })
-   })
-}
+  window.onload = function() {
+    estado_tablero.forEach(function(fila, y) {
+      fila.forEach(function(valor, x) {
+        var celda = document.getElementById(x + '-' + y)
+        var cambio1 = document.getElementById("Jugador")
+        celda.onclick = (function(){
+            for (let y = 0; y < 6; y++) {
+              const valor = estado_tablero[y][x];
+              if(valor !== 0){
+                estado_tablero[y - 1][x] = turno
+                turno = turno === 1 ? -1 : 1
+                break
+              }else if (y === 5){
+                estado_tablero[y][x] = turno
+                turno = turno === 1 ? -1 : 1
+              }
+            }
+            pintar()
+            chequearGanador()
+            if(turno === 1){
+                cambiar()
+                cambio1.className = "activo1"
+            }
+            if(turno === -1){
+                cambiar()
+                cambio1.className = "activo2"
+            }
+
+          })
+          celda.onmouseover = mousearriba(x)
+          celda.onmouseout = mousenoarriba(x)
+          Guardar()
+          Cargar()
+      })
+    })
+  }
+
+
+
 
 var reset = function(){
   var mensaje = confirm("¿Jugamos otra partida?")
@@ -55,9 +61,6 @@ var reset = function(){
     alert("Nos vemos otro día!")
     window.close()
   }
-
-
-
 }
 
 
@@ -135,4 +138,18 @@ var pintar = function() {
         }
       })
   })
+}
+
+var Guardar = function(){
+  var guardar = document.getElementById("guardar_partida")
+  guardar.onclick = function(){
+    localStorage.setItem("tablero", estado_tablero)
+  }
+}
+
+var Cargar = function(){
+  var cargar = document.getElementById("cargar_partida")
+  cargar.onclick = function(){
+    localStorage.getItem("tablero")
+  }
 }
