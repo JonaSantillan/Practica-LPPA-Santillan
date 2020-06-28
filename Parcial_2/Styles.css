@@ -1,0 +1,42 @@
+body{
+    background-color: #aa3838;
+    font-family: arial;
+}
+
+#titulo{
+    color: white;
+
+}
+
+#cargando{
+    color: white;
+    font-size: 20px;
+}
+
+#tabla{
+    border-collapse: collapse;
+    background-color: white;
+}
+
+
+th{
+    border: 2px solid rgb(0, 0, 0);
+    padding: 10px;
+}
+
+td{
+    border: 2px solid rgb(0, 0, 0);
+    padding: 2px;
+    text-align: center;
+    list-style: none;
+}
+
+td:nth-child(even){
+    background-color: rgb(250, 245, 240);
+}
+
+thead{
+    background-color: teal;
+    color: white;
+
+}
