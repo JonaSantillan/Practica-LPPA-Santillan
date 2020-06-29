@@ -8,7 +8,7 @@ window.onload = async function() {
             cargando.textContent = "Actualizando..."
         }
 
-        var response = await fetch ("http://dummy.restapiexample.com/api/v1/employees")
+        var response = await fetch ("https://run.mocky.io/v3/11540f28-5acd-487a-867f-bf62ca4c01c4")
         var jsonResponse = await response.json()
         
         localStorage.setItem("tabla", JSON.stringify(jsonResponse))
