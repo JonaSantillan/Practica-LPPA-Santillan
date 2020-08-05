@@ -77,8 +77,39 @@
               <div id="6-5" class="celda"></div>
             </div>
             <br>
-        <center><div>
-          <button id="reset" class="boton">Nuevo Juego</button><br>
-        </div></center>
+      <center><table id="tabla_Ptos">
+          <thead>
+              <th id="Jug1">Jugador N°1</th>
+              <th> Vs.</th>
+              <th id="Jug2">Jugador N°2</th>
+          </thead>
+          <tbody>
+              <td><span id="SegJ1">0</span></td>
+              <td> - </td>
+              <td><span id="SegJ2">0</span></td>
+          </tbody>
+      </table><br></center>
+      <center>
+        <button id="reset" class="boton1">Nuevo Juego</button></center><br>
+      <center><h2 id="Partidas">Lista de Partidas Guardadas</h1></center>
+        <button id="guardar" class="boton2">Guardar Partida</button>
+        <button id="cargar" class="boton2">Cargar Partida</button>
+      <br><br>
+        <center><table id="tabla">
+            <thead>
+                <th>ID de Partida</th>
+                <th>Fecha de la Partida</th>
+                <th>Tiempo Jugador N°1</th>
+                <th>Tiempo Jugador N°2</th>
+                <th>Seleccionar</th>
+            </thead>
+            <tbody>
+                <td id="idpartida"></td>
+                <td id="fechapartida"></td>
+                <td id="timeJ1"></td>
+                <td id="timeJ2"></td>
+                <td id="select"></td>
+            </tbody>
+        </table></center>
 
 </html>
