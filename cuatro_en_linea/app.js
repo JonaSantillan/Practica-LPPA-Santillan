@@ -64,6 +64,7 @@ window.onload = function() {
   TiempoJug1()
   reset()
   Guardar()
+  CargarPartida()
 }
 
 //Contador de Tiempo
@@ -249,45 +250,31 @@ var reset = function(){
 
 //Guarda Partida en Tabla
 
-/*La Partida guarda lo siguiente:
-- id de partida
-- fecha
-- tiempo j1
-- tiempo j2
-- seleccionar 
-
-
-id="idpartida"
-id="fechapartida"
-id="timeJ1"
-id="timeJ2"
-id="select"
-*/
-
 var ListaPartida = []
 
 var idp = document.getElementById("idpartida")
 var fechap = document.getElementById("fechapartida")
 var tJ1 = document.getElementById("timeJ1")
 var tJ2 = document.getElementById("timeJ2")
-var select = document.getElementById("select")
+var select = document.getElementById("Selec")
 var estate
 
+var cont = 0
+
 //esta funcion debe agregar una partida
-var AgregarPartida = function (idp, fechap, tJ1, tJ2, select, estate){
-//ver id de como ponerlo....
-  if(idp){
-    idp = idp + 1
-  }
+var AgregarPartida = function (idp, fechap, tJ1, tJ2, estate, select){
+  cont++
+  var idp = cont
 
   var time1 = document.getElementById("SegJ1")
   var time2 = document.getElementById("SegJ2")
 
-  fechap = new Date()
-
+  var fecha = new Date()
+  fechap = fecha.getDate() + "/" + (fecha.getMonth() + 1) + "/" + fecha.getFullYear()
   tJ1 = time1.innerHTML
   tJ2 = time2.innerHTML
   estate = JSON.parse(localStorage.getItem("estado"))
+  select = document.getElementById("Selec").value = "id" + idp
 
 
   var newPartida = {
@@ -295,12 +282,9 @@ var AgregarPartida = function (idp, fechap, tJ1, tJ2, select, estate){
     Fecha : fechap,
     tiempoj1 : tJ1,
     tiempoj2 : tJ2,
-    Selector : select,
-    estadoG : estate
+    estadoG : estate,
+    Seleccion : select,
   }
-
-
-
   ListaPartida.push(newPartida)
 
 }
@@ -309,7 +293,10 @@ var Guardar = function(){
   var guardar = document.getElementById("guardar")
   guardar.onclick = function(){
     AgregarPartida()
-    localStorage.setItem("Partida", JSON.stringify(ListaPartida)) //estoy guardando lo que ya tenia guardado
+    if(localStorage.getItem("Partida")){
+      LimpiarTabla()
+    }
+    localStorage.setItem("Partida", JSON.stringify(ListaPartida))
     ArmarTabla(ListaPartida)
   }
 }
@@ -319,13 +306,12 @@ var ArmarTabla = function(ListaPartida){
   var fechap = document.getElementById("fechapartida")
   var tJ1 = document.getElementById("timeJ1")
   var tJ2 = document.getElementById("timeJ2")
-  var select = document.getElementById("select")
+  var select = document.getElementById("Selec")
 
   ListaPartida.forEach(function(partida){
     var li = document.createElement("li")
     li.appendChild(document.createTextNode(partida.id))
     idp.appendChild(li)
-    console.log(idp)
 
     var li = document.createElement("li")
     li.appendChild(document.createTextNode(partida.Fecha))
@@ -339,8 +325,44 @@ var ArmarTabla = function(ListaPartida){
     li.appendChild(document.createTextNode(partida.tiempoj2))
     tJ2.appendChild(li)
 
-
+    const boton = document.createElement("button")
+    boton.type = "button"
+    boton.getElementById = "id" + idp
+    boton.innerText = "Cargar Partida"
+    boton.appendChild(document.createElement(partida.Seleccion))
+    select.appendChild(boton)
   })
 }
+
+var LimpiarTabla = function(){
+  var idp = document.getElementById("idpartida")
+  var fechap = document.getElementById("fechapartida")
+  var tJ1 = document.getElementById("timeJ1")
+  var tJ2 = document.getElementById("timeJ2")
+  var select = document.getElementById("Selec")
+
+  idp.innerText = ""
+  fechap.innerText = ""
+  tJ1.innerText = ""
+  tJ2.innerText = ""
+  select.innerHTML = ""
+
+}
+
+//Cargar partida Guardada
+
+var CargarPartida = function(){
+  
+  var cargar = document.getElementById("Selec")
+  //definir el ID inidviduales de los botones cargar de las lineas
+  cargar.onclick = function(){
+    console.log("entro"+ cargar.value)
+
+  }
+
+}
+
+
+
 
 //Fin Operaciones
